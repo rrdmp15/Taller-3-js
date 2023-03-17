@@ -15,9 +15,10 @@ let datosCampers = document.getElementById("datosCampers");
 let datosTrainers = document.getElementById("datosTrainers");
 let btnNext1 = document.getElementById("btnNext1");
 let btnNext2 = document.getElementById("btnNext2");
-let btnNext3 = document.getElementById("btnNext3");
 let botonReiniciar = document.getElementById('botonReiniciar')
-
+let current_fs, next_fs, previous_fs;
+let left, opacity, scale;
+let animating;
 
 // esconder section
 datosCampers.style.display = "none";
@@ -190,9 +191,6 @@ selectTeam.addEventListener("change", (e)=>{
             break;
     }
 })
-
-
-
 
 // <option value=""></option>
 //  `` 

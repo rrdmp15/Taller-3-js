@@ -4,138 +4,146 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <script src="main.js" defer></script>
     <title>Document</title>
 </head>
 <body>
     <main>
+        <!-- progressbar -->
+        <ul id="progressbar">
+            <li class="active">Agregar Sede</li>
+            <li>Datos de los Campers</li>
+            <li>Datos de los Trainers</li>
+        </ul>
+        
         <!-- Agregar Sedes -->
         <section id="agregarSede">
-            <fieldset>
-                <legend>Sedes de CAMPUS</legend>
-                <form id="miFormularioSedesCampus" >
-                    <input type="text" name="nombreSede" placeholder="Nombre de la sede"><br><br>
-                    <input type="submit" value="Guardar">
-                    <button id="btnNext1">Siguiente</button>
-                </form>
-            </fieldset>
+            <h2 class="title">Sedes de CAMPUS</h2> 
+            <form id="miFormularioSedesCampus" >
+                <input type="text" name="nombreSede" placeholder="Nombre de la sede"><br>
+                <input type="submit" value="Guardar" class="action-button">
+                <button id="btnNext1" class="action-button">Siguiente</button>
+            </form>
         </section>
 
         <!-- Datos Campers -->
         <section id="datosCampers">
-            <fieldset>
-                <legend>Datos de Contacto de los campers CAMPUS</legend>
-                <form id="myFormularioCampers">
-                    <select name="sede" id="sede"></select><br><br>
-                    <input type="text" name="nombre" placeholder="Ingrese su nombre"><br><br>
-                    <input type="tel" name="telefono" placeholder="Ingrese su telefono"><br><br>
-                    <input type="text" name="email" placeholder="Ingrese su email"><br><br>
-                    <input type="text" name="barrio" placeholder="Ingrese el barrio donde vive"><br><br>
-                    <input type="text" name="transporte" placeholder="Ingrese su medio de Transporte"><br><br>
+            <h2 class="title">Datos de Contacto de los campers</h2> 
+            <form id="myFormularioCampers">
+                <select name="sede" id="sede"></select><br>
+                <input type="text" name="nombre" placeholder="Ingrese su nombre"><br>
+                <input type="tel" name="telefono" placeholder="Ingrese su telefono"><br>
+                <input type="text" name="email" placeholder="Ingrese su email"><br>
+                <input type="text" name="barrio" placeholder="Ingrese el barrio donde vive"><br>
+                <input type="text" name="transporte" placeholder="Ingrese su medio de Transporte"><br>
 
-                    <label for="selectHorario">Seleccione su Horario de clases</label><br>
-                    <select name="horarios" id="selectHorario">
-                        <option selected>Seleccione</option>
-                    </select><br><br>
+                <h3 class="subtitle">Horarios:</h3> 
+                <select name="horarios" id="selectHorario">
+                    <option selected>Seleccione</option>
+                </select><br>
 
-                    <label for="selectTeam">Seleccione su Team</label><br>
-                    <select name="team" id="selectTeam"></select><br><br>
+                <h3 class="subtitle">Team:</h3> 
+                <select name="team" id="selectTeam"></select><br>
 
-                    <label for="dias">Seleccione sus dias de clases</label><br>
-                    <select name="dias" id="dias">
-                        <option value="L-V">Lunes a Viernes</option>
-                    </select><br><br>
+                <h3 class="subtitle">Dias:</h3>
+                <select name="dias" id="dias">
+                    <option value="L-V">Lunes a Viernes</option>
+                </select><br>
 
-                    <label for="hIngles">Seleccione su Horario de Ingles</label><br>
-                    <select name="horario-ingles" id="hIngles"></select><br><br>
+                <h3 class="subtitle">Horario de Ingles:</h3> 
+                <select name="horario-ingles" id="hIngles"></select><br>
 
-                    <label for="hSer">Seleccione su Horario SER</label><br>
-                    <select name="horario-ser" id="hSer"></select><br><br>
+                <h3 class="subtitle">Horario SER:</h3> 
+                <select name="horario-ser" id="hSer"></select><br>
 
-                    <label for="piso">Seleccione el Piso</label><br>
-                    <select name="piso" id="piso">
-                        <option value="piso1">Piso 1</option>
-                        <option value="piso2">Piso 2</option>
-                        <option value="piso3">Piso 3</option>
-                        <option value="piso4">Piso 4</option>
-                        <option value="piso5">Piso 5</option>
-                        <option value="piso6">Piso 6</option>
-                        <option value="piso7">Piso 7</option>
-                        <option value="piso8">Piso 8</option>
-                    </select><br><br>
-                    
-                    <label for="salon">Seleccione su Salon</label><br>
-                    <select name="salon" id="salon">
-                        <option value="salon1">Sputnik</option>
-                        <option value="salon2">Artemis</option>
-                        <option value="salon3">Apolo</option>
-                    </select><br><br>
+                <h3 class="subtitle">Piso:</h3>
+                <select name="piso" id="piso">
+                    <option value="piso1">Piso 1</option>
+                    <option value="piso2">Piso 2</option>
+                    <option value="piso3">Piso 3</option>
+                    <option value="piso4">Piso 4</option>
+                    <option value="piso5">Piso 5</option>
+                    <option value="piso6">Piso 6</option>
+                    <option value="piso7">Piso 7</option>
+                    <option value="piso8">Piso 8</option>
+                </select><br>
 
-                    <label for="nivel">Seleccione su Nivel Actual</label><br>
-                    <select name="nivel" id="nivel">
-                        <option value="avanzado">Avanzado</option>
-                        <option value="intermedio">Intermedio</option>
-                        <option value="basico">Basico</option>
-                    </select><br><br>
+                <h3 class="subtitle">Salon:</h3>
+                <select name="salon" id="salon">
+                    <option value="salon1">Sputnik</option>
+                    <option value="salon2">Artemis</option>
+                    <option value="salon3">Apolo</option>
+                </select><br>
 
-                    
-                    <input type="submit" value="Guardar">
-                    <button id="btnNext2">Siguiente</button>
-                </form>
-            </fieldset>
+                <h3 class="subtitle">Nivel Actual:</h3>
+                <select name="nivel" id="nivel">
+                    <option value="avanzado">Avanzado</option>
+                    <option value="intermedio">Intermedio</option>
+                    <option value="basico">Basico</option>
+                </select><br>
+
+
+                <input type="submit" value="Guardar" class="action-button">
+                <button id="btnNext2" class="action-button">Siguiente</button>
+            </form>
         </section>
 
         <!-- Datos Trainers -->
         <section id="datosTrainers">
-            <fieldset>
-                <legend>Datos de Contacto de los Trainers CAMPUS</legend>
-                <form id="myFormularioTrainers">
-                    <select name="sede" id="sede"></select><br><br>
-                    <input type="text" name="nombre" placeholder="Ingrese su nombre"><br><br>
-                    <input type="tel" name="telefono" placeholder="Ingrese su telefono"><br><br>
-                    <input type="text" name="email" placeholder="Ingrese su email"><br><br>
+            <h2 class="title">Datos de Contacto de los Trainers</h2>
+            <form id="myFormularioTrainers">
+                <select name="sede" id="sede"></select><br>
+                <input type="text" name="nombre" placeholder="Ingrese su nombre"><br>
+                <input type="tel" name="telefono" placeholder="Ingrese su telefono"><br>
+                <input type="text" name="email" placeholder="Ingrese su email"><br>
 
-                    <p>Seleccione sus Teams:</p>
-                        <label for="team1">Team 1</label>
-                        <input type="checkbox" name="Team1" id="team1"><br>
-                        <label for="team2">Team 2</label>
-                        <input type="checkbox" name="Team2" id="team2"><br>
-                        <label for="team3">Team 3</label>
-                        <input type="checkbox" name="Team3" id="team3"><br>
-                        <label for="team4">Team 4</label>
-                        <input type="checkbox" name="Team4" id="team4"><br><br>
-                    
+                <h3 class="subtitle">Seleccione sus Teams:</h3>
+                <label for="team1" class="subtitle">Team 1</label>
+                <input type="checkbox" name="Team1" id="team1">
+                <label for="team2" class="subtitle">Team 2</label>
+                <input type="checkbox" name="Team2" id="team2">
+                <label for="team3" class="subtitle">Team 3</label>
+                <input type="checkbox" name="Team3" id="team3">
+                <label for="team4" class="subtitle">Team 4</label>
+                <input type="checkbox" name="Team4" id="team4">
 
-                    <select name="dias">
-                        <option value="l-v">Lunes a Viernes</option>
-                    </select><br><br>
+                <h3 class="subtitle">Dias:</h3>
+                <select name="dias">
+                    <option value="l-v">Lunes a Viernes</option>
+                </select><br>
 
-                    <select name="horarios">
-                        <option value="mañana">6:00am - 2:00pm</option>
-                        <option value="tarde"> 2:00pm - 10:00pm</option>
-                    </select><br><br>
+                <h3 class="subtitle">Horario:</h3>
+                <select name="horarios">
+                    <option value="mañana">6:00am - 2:00pm</option>
+                    <option value="tarde"> 2:00pm - 10:00pm</option>
+                </select><br>
 
-                    <select name="piso">
-                        <option value="piso1">Piso 1</option>
-                        <option value="piso2">Piso 2</option>
-                        <option value="piso3">Piso 3</option>
-                        <option value="piso4">Piso 4</option>
-                        <option value="piso5">Piso 5</option>
-                        <option value="piso6">Piso 6</option>
-                        <option value="piso7">Piso 7</option>
-                        <option value="piso8">Piso 8</option>
-                    </select><br><br>
-                    
-                    <select name="salon">
-                        <option value="salon1">Sputnik</option>
-                        <option value="salon2">Artemis</option>
-                        <option value="salon3">Apolo</option>
-                    </select><br><br>
+                <h3 class="subtitle">Piso:</h3>
+                <select name="piso">
+                    <option value="piso1">Piso 1</option>
+                    <option value="piso2">Piso 2</option>
+                    <option value="piso3">Piso 3</option>
+                    <option value="piso4">Piso 4</option>
+                    <option value="piso5">Piso 5</option>
+                    <option value="piso6">Piso 6</option>
+                    <option value="piso7">Piso 7</option>
+                    <option value="piso8">Piso 8</option>
+                </select><br>
 
-                    <input type="submit" value="Guardar">
-                    <button id="botonReiniciar">Reiniciar</button>
-                </form>
-            </fieldset>
+                <h3 class="subtitle">Salon:</h3>
+                <select name="salon">
+                    <option value="salon1">Sputnik</option>
+                    <option value="salon2">Artemis</option>
+                    <option value="salon3">Apolo</option>
+                </select><br>
+
+                <input type="submit" value="Guardar" class="action-button">
+                <button id="botonReiniciar" class="action-button">Reiniciar</button>
+            </form>
         </section>
     </main>
 </body>

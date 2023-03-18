@@ -29,6 +29,10 @@ main section{
 	position: relative;
 }
 
+main section:not(:first-of-type) {
+	display: none;
+}
+
 main input, main select{
     padding: 15px;
 	border: 1px solid #ccc;
@@ -57,13 +61,14 @@ main input, main select{
 #msform .action-button:hover, #msform .action-button:focus {
 	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
 }
-/*headings*/
+
 .title {
 	font-size: 15px;
 	text-transform: uppercase;
 	color: #2C3E50;
 	margin-bottom: 10px;
 }
+
 .subtitle {
     text-align: left;
 	font-weight: normal;
@@ -82,7 +87,7 @@ main input, main select{
 	color: white;
 	text-transform: uppercase;
 	font-size: 9px;
-	width: 33.33%;
+	width: 16.66%;
 	float: left;
 	position: relative;
 }
@@ -110,7 +115,6 @@ main input, main select{
 	z-index: -1;
 }
 #progressbar li:first-child:after {
-	
 	content: none; 
 }
 

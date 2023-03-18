@@ -1,3 +1,6 @@
+let miFormularioTecnologias = document.querySelector('#miFormularioTecnologias')
+let miFormularioRoadmap = document.querySelector('#miFormularioRoadmap')
+let miFormularioNiveles = document.querySelector('#miFormularioNiveles')
 let miFormularioSedesCampus = document.querySelector("#miFormularioSedesCampus");
 let myFormularioCampers = document.querySelector("#myFormularioCampers");
 let myFormularioTrainers = document.querySelector("#myFormularioTrainers");
@@ -13,20 +16,10 @@ let hSer = document.getElementById("hSer");
 let agregarSede = document.getElementById("agregarSede");
 let datosCampers = document.getElementById("datosCampers");
 let datosTrainers = document.getElementById("datosTrainers");
-let btnNext1 = document.getElementById("btnNext1");
-let btnNext2 = document.getElementById("btnNext2");
 let botonReiniciar = document.getElementById('botonReiniciar')
 let current_fs, next_fs, previous_fs;
 let left, opacity, scale;
 let animating;
-
-// esconder section
-datosCampers.style.display = "none";
-datosTrainers.style.display = "none";
-
-// mostrar section
-btnNext1.addEventListener("click", mostrarCampers);
-btnNext2.addEventListener("click", mostrarTrainers);
 
 function mostrarCampers(){
     datosCampers.style.display = "block";
@@ -49,7 +42,7 @@ function reiniciarJuego(){
 miFormularioSedesCampus.addEventListener("submit", (e)=>{
     e.preventDefault();
     let data = Object.fromEntries(new FormData(e.target))
-    campus[`${data.nombreSede}`] = {Camper: [], Trainers: []};
+    campus[`${data.nombreSede}`] = {Tecnologias:[], Roadmap:[], Niveles:[], Camper: [], Trainers: []};
     listaSedes();
     actualizarOpcionesSelect();
     miFormularioSedesCampus.reset();
@@ -64,6 +57,42 @@ let listaSedes = ()=>{
         `);
     }
 }
+
+miFormularioRoadmap.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    let data = Object.fromEntries(new FormData(e.target));
+    console.log(data);
+    let sede = data.sede;
+    delete data.sede;
+    campus[`${sede}`]["Roadmap"].unshift(data);
+    console.log(campus);
+    actualizarOpcionesSelect();
+    miFormularioRoadmap.reset();
+})
+
+miFormularioTecnologias.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    let data = Object.fromEntries(new FormData(e.target));
+    console.log(data);
+    let sede = data.sede;
+    delete data.sede;
+    campus[`${sede}`]["Tecnologias"].unshift(data);
+    console.log(campus);
+    actualizarOpcionesSelect();
+    miFormularioTecnologias.reset();
+})
+
+miFormularioNiveles.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    let data = Object.fromEntries(new FormData(e.target));
+    console.log(data);
+    let sede = data.sede;
+    delete data.sede;
+    campus[`${sede}`]["Niveles"].unshift(data);
+    console.log(campus);
+    actualizarOpcionesSelect();
+    miFormularioNiveles.reset();
+})
 
 myFormularioCampers.addEventListener("submit", (e)=>{
     e.preventDefault();
@@ -91,14 +120,15 @@ myFormularioTrainers.addEventListener("submit", (e)=>{
 function actualizarOpcionesSelect() {
     let opciones = document.querySelectorAll("[name='sede']");
     opciones.forEach(opcion => {
-    opcion.innerHTML = null;
-    for (let [val, id] of Object.entries(campus)) {
-        opcion.insertAdjacentHTML("beforeend", `
-        <option value="${val}">${val}</option>
-        `);
-    }
+        opcion.innerHTML = null;
+        for (let [val, id] of Object.entries(campus)) {
+            opcion.insertAdjacentHTML("beforeend", `
+            <option value="${val}">${val}</option>
+            `);
+        }
     });
 }
+
 
 
 // concatenar select

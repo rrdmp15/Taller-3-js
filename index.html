@@ -16,6 +16,9 @@
         <!-- progressbar -->
         <ul id="progressbar">
             <li class="active">Agregar Sede</li>
+            <li>Agregar Tecnologias</li>
+            <li>AgregarRoadmap</li>
+            <li>Agregar Niveles</li>
             <li>Datos de los Campers</li>
             <li>Datos de los Trainers</li>
         </ul>
@@ -32,11 +35,46 @@
 
         <!-- Agregar Tecnologias -->
         <section id="agregarTecnologias">
-            <form id="miformularioTecnologias">
-                
+            <h2 class="title">Agregar Tecnologias</h2>
+            <form id="miFormularioTecnologias">
+                <input type="text" name="nombreTecnologias" placeholder="Nombre de la Tecnologia o Asignatura"><br>
+                <select name="modoEstudio" id="modoEstudio">
+                    <option selected>Seleccionar modo de estudio</option>
+                    <option value="Electiva">Electiva</option>
+                    <option value="Obligatoria">Obligatoria</option>
+                </select>
+
+                <h3 class="subtitle">Sandbox</h3>
+                <label for="sandboxS">Si</label> <input type="radio" name="sandbox" id="sandboxS" value="Lleva sandbox">
+                <label for="sandboxN">No</label> <input type="radio" name="sandbox" id="sandboxN" value="no lleva sandbox">
+
+                <h3 class="subtitle">Seleccione si es electiva u obligatoria:</h3>
+                <label for="electiva">Electiva</label><input type="radio" name="electObli" id="electiva">
+                <label for="Obligatoria">Obligatoria</label> <input type="radio" name="electObli" id="obligatoria">
+
+                <select name="nombreSalon" id="nombreSalon">
+                    <option selected>Seleccione el salon de la tecnologia</option>
+                    <option value="Sputnik">Sputnik</option>
+                    <option value="Artemis">Artemis</option>
+                    <option value="Apolo">Apolo</option>
+                    <option value="Auditorio">Auditorio</option>
+                    <option value="Laboratorios">Laboratorios</option>
+                </select>
             </form>
         </section>
 
+        <!-- Agregar Roadmap -->
+        <section id="agregarRoadmap">
+            <h2 class="title">Agregar Roadmap</h2>
+            <form id="miFormularioRoadmap">
+                <input type="text" name="roadmap" id="roadmap" placeholder="Nombre del Roadmap">
+                <h3>Nro de Creditos:</h3>
+                <input type="number" name="creditos" id="creditos">
+                <h3 class="subtitle">Año:</h3>
+                <input type="number" name="anio" min="1900" max="2023" value="2023">
+
+            </form>
+        </section>
         <!-- agregar niveles -->
         <section id="agregarNiveles">
             <h2 class="title">Agregar Niveles</h2>

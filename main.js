@@ -14,22 +14,60 @@ let horariosSER = ["8:00am - 9:00am", "11:00am - 12:00am", "4:00pm - 5:00pm", "6
 let hIngles = document.getElementById("hIngles");
 let hSer = document.getElementById("hSer");
 let agregarSede = document.getElementById("agregarSede");
+let agregarTecnologias = document.getElementById("agregarTecnologias");
+let agregarNiveles = document.getElementById("agregarNiveles");
+let agregarRoadmap = document.getElementById("agregarRoadmap");
 let datosCampers = document.getElementById("datosCampers");
 let datosTrainers = document.getElementById("datosTrainers");
 let botonReiniciar = document.getElementById('botonReiniciar')
-let current_fs, next_fs, previous_fs;
-let left, opacity, scale;
-let animating;
+let nextSede = document.querySelector("#nextSede");
+let nextTecno = document.querySelector("#nextTecno");
+let nextRoad = document.querySelector("#nextRoad");
+let nextNivel = document.querySelector("#nextNivel");
+let nextCamper = document.querySelector("#nextCamper");
 
-function mostrarCampers(){
-    datosCampers.style.display = "block";
-    agregarSede.style.display = "none";
+// mostrar section
+
+nextSede.addEventListener("click", mostrarTecno)
+function mostrarTecno(){
+    agregarTecnologias.style.display = "block"
+    agregarSede.style.display = "none"
 }
 
-function mostrarTrainers(){
-    datosTrainers.style.display = "block";
-    datosCampers.style.display = "none";
+nextTecno.addEventListener("click", mostrarRoad)
+
+function mostrarRoad(){
+    agregarRoadmap.style.display = "block"
+    agregarTecnologias.style.display = "none"
 }
+
+nextRoad.addEventListener("click", mostrarNivel)
+
+function mostrarNivel(){
+    agregarNiveles.style.display = "block"
+    agregarRoadmap.style.display = "none"
+}
+
+nextNivel.addEventListener("click", mostrarCamper)
+
+function mostrarCamper(){
+    datosCampers.style.display = "block"
+    agregarNiveles.style.display = "none"
+}
+
+nextCamper.addEventListener("click", mostrarTrainer)
+function mostrarTrainer(){
+    datosTrainers.style.display = "block"
+    datosCampers.style.display = "none"
+}
+
+
+
+
+
+
+
+
 
 // reiniciar 
 botonReiniciar.addEventListener('click', reiniciarJuego)

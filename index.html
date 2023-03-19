@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="main.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -17,7 +18,7 @@
         <ul id="progressbar">
             <li class="active">Agregar Sede</li>
             <li>Agregar Tecnologias</li>
-            <li>AgregarRoadmap</li>
+            <li>Agregar Roadmap</li>
             <li>Agregar Niveles</li>
             <li>Datos de los Campers</li>
             <li>Datos de los Trainers</li>
@@ -29,7 +30,7 @@
             <form id="miFormularioSedesCampus" >
                 <input type="text" name="nombreSede" placeholder="Nombre de la sede"><br>
                 <input type="submit" value="Guardar" class="action-button">
-                <button id="btnNext1" class="action-button">Siguiente</button>
+                <input type="button" name="next" class="next action-button" value="Next" id="nextSede"/>
             </form>
         </section>
 
@@ -60,6 +61,7 @@
                     <option value="Auditorio">Auditorio</option>
                     <option value="Laboratorios">Laboratorios</option>
                 </select>
+                <input type="button" name="next" class="next action-button" value="Next" id="nextTecno"/>
             </form>
         </section>
 
@@ -72,7 +74,7 @@
                 <input type="number" name="creditos" id="creditos">
                 <h3 class="subtitle">Año:</h3>
                 <input type="number" name="anio" min="1900" max="2023" value="2023">
-
+                <input type="button" name="next" class="next action-button" value="Next" id="nextRoad"/>
             </form>
         </section>
         <!-- agregar niveles -->
@@ -82,7 +84,7 @@
                 <input type="text" name="level" id="level" placeholder="Ingrese el nivel">
                 <input type="text" name="prerequisito" id="prerequisito" placeholder="Ingrese el prerequisito">
                 <select name="selecTecnologia" id="selecTecnologia"></select>
-                <button id="guardarNivel" class="action-button">Guardar</button> <button id="btn3" class="action-button">Siguiente</button>
+                <button id="guardarNivel" class="action-button">Guardar</button> <input type="button" name="next" class="next action-button" value="Next" id="nextNivel"/>
             </form>
         </section>
 
@@ -144,7 +146,7 @@
 
 
                 <input type="submit" value="Guardar" class="action-button">
-                <button id="btnNext2" class="action-button">Siguiente</button>
+                <input type="button" name="next" class="next action-button" value="Next" id="nextCamper"/>
             </form>
         </section>
 

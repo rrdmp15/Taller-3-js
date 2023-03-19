@@ -1,4 +1,4 @@
-let miFormularioTecnologias = document.querySelector('#miFormularioTecnologias')
+let miFormularioAsignaturas = document.querySelector('#miFormularioAsignaturas')
 let miFormularioRoadmap = document.querySelector('#miFormularioRoadmap')
 let miFormularioNiveles = document.querySelector('#miFormularioNiveles')
 let miFormularioSedesCampus = document.querySelector("#miFormularioSedesCampus");
@@ -14,42 +14,41 @@ let horariosSER = ["8:00am - 9:00am", "11:00am - 12:00am", "4:00pm - 5:00pm", "6
 let hIngles = document.getElementById("hIngles");
 let hSer = document.getElementById("hSer");
 let agregarSede = document.getElementById("agregarSede");
-let agregarTecnologias = document.getElementById("agregarTecnologias");
+let agregarAsignaturas = document.getElementById("agregarAsignaturas");
 let agregarNiveles = document.getElementById("agregarNiveles");
 let agregarRoadmap = document.getElementById("agregarRoadmap");
 let datosCampers = document.getElementById("datosCampers");
 let datosTrainers = document.getElementById("datosTrainers");
+let consultas = document.getElementById("Consultas");
 let botonReiniciar = document.getElementById('botonReiniciar')
 let nextSede = document.querySelector("#nextSede");
 let nextTecno = document.querySelector("#nextTecno");
 let nextRoad = document.querySelector("#nextRoad");
 let nextNivel = document.querySelector("#nextNivel");
 let nextCamper = document.querySelector("#nextCamper");
+let nextTrainers = document.querySelector("#nextTrainers");
 
 // mostrar section
 
 nextSede.addEventListener("click", mostrarTecno)
 function mostrarTecno(){
-    agregarTecnologias.style.display = "block"
+    agregarAsignaturas.style.display = "block"
     agregarSede.style.display = "none"
 }
 
 nextTecno.addEventListener("click", mostrarRoad)
-
 function mostrarRoad(){
     agregarRoadmap.style.display = "block"
-    agregarTecnologias.style.display = "none"
+    agregarAsignaturas.style.display = "none"
 }
 
 nextRoad.addEventListener("click", mostrarNivel)
-
 function mostrarNivel(){
     agregarNiveles.style.display = "block"
     agregarRoadmap.style.display = "none"
 }
 
 nextNivel.addEventListener("click", mostrarCamper)
-
 function mostrarCamper(){
     datosCampers.style.display = "block"
     agregarNiveles.style.display = "none"
@@ -60,14 +59,6 @@ function mostrarTrainer(){
     datosTrainers.style.display = "block"
     datosCampers.style.display = "none"
 }
-
-
-
-
-
-
-
-
 
 // reiniciar 
 botonReiniciar.addEventListener('click', reiniciarJuego)
@@ -80,7 +71,7 @@ function reiniciarJuego(){
 miFormularioSedesCampus.addEventListener("submit", (e)=>{
     e.preventDefault();
     let data = Object.fromEntries(new FormData(e.target))
-    campus[`${data.nombreSede}`] = {Tecnologias:[], Roadmap:[], Niveles:[], Camper: [], Trainers: []};
+    campus[`${data.nombreSede}`] = {Asignaturas: [], Roadmap: [], Niveles: [], Camper: [], Trainers: []};
     listaSedes();
     actualizarOpcionesSelect();
     miFormularioSedesCampus.reset();
@@ -96,6 +87,19 @@ let listaSedes = ()=>{
     }
 }
 
+
+miFormularioAsignaturas.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    let data = Object.fromEntries(new FormData(e.target));
+    console.log(data);
+    let sede = data.sede;
+    delete data.sede;
+    campus[`${sede}`]["Asignaturas"].unshift(data);
+    console.log(campus);
+    actualizarOpcionesSelect();
+    miFormularioAsignaturas.reset();
+})
+
 miFormularioRoadmap.addEventListener("submit", (e)=>{
     e.preventDefault();
     let data = Object.fromEntries(new FormData(e.target));
@@ -106,18 +110,6 @@ miFormularioRoadmap.addEventListener("submit", (e)=>{
     console.log(campus);
     actualizarOpcionesSelect();
     miFormularioRoadmap.reset();
-})
-
-miFormularioTecnologias.addEventListener("submit", (e)=>{
-    e.preventDefault();
-    let data = Object.fromEntries(new FormData(e.target));
-    console.log(data);
-    let sede = data.sede;
-    delete data.sede;
-    campus[`${sede}`]["Tecnologias"].unshift(data);
-    console.log(campus);
-    actualizarOpcionesSelect();
-    miFormularioTecnologias.reset();
 })
 
 miFormularioNiveles.addEventListener("submit", (e)=>{
@@ -142,8 +134,8 @@ myFormularioCampers.addEventListener("submit", (e)=>{
     console.log(campus);
     myFormularioCampers.reset();
 })
-
-myFormularioTrainers.addEventListener("submit", (e)=>{
+formTrainers();
+function formTrainers(){myFormularioTrainers.addEventListener("submit", (e)=>{
     e.preventDefault();
     let data = Object.fromEntries(new FormData(e.target));
     console.log(data);
@@ -153,7 +145,7 @@ myFormularioTrainers.addEventListener("submit", (e)=>{
     console.log(campus);
     actualizarOpcionesSelect();
     myFormularioTrainers.reset();
-})
+})}
 
 function actualizarOpcionesSelect() {
     let opciones = document.querySelectorAll("[name='sede']");
@@ -166,7 +158,6 @@ function actualizarOpcionesSelect() {
         }
     });
 }
-
 
 
 // concatenar select
@@ -259,6 +250,8 @@ selectTeam.addEventListener("change", (e)=>{
             break;
     }
 })
+
+
 
 // <option value=""></option>
 //  `` 

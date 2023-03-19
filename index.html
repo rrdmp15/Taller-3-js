@@ -29,20 +29,23 @@
             <h2 class="title">Sedes de CAMPUS</h2> 
             <form id="miFormularioSedesCampus" >
                 <input type="text" name="nombreSede" placeholder="Nombre de la sede"><br>
+                <input type="number" name="telefonoSede" placeholder="Ingrese el telefono de la sede">
+                <input type="text" name="direccionSede" placeholder="Ingrese la direccion de la sede">
                 <input type="submit" value="Guardar" class="action-button">
                 <input type="button" name="next" class="next action-button" value="Next" id="nextSede"/>
             </form>
         </section>
 
-        <!-- Agregar Tecnologias -->
-        <section id="agregarTecnologias">
-            <h2 class="title">Agregar Tecnologias</h2>
-            <form id="miFormularioTecnologias">
-                <input type="text" name="nombreTecnologias" placeholder="Nombre de la Tecnologia o Asignatura"><br>
+        <!-- Agregar Asignaturas -->
+        <section id="agregarAsignaturas">
+            <h2 class="title">Agregar Asignaturas</h2>
+            <form id="miFormularioAsignaturas">
+                <select name="sede" id="sede"></select><br>
+                <input type="text" name="nombreAsignaturas" placeholder="Nombre de la Tecnologia o Asignatura"><br>
                 <select name="modoEstudio" id="modoEstudio">
                     <option selected>Seleccionar modo de estudio</option>
-                    <option value="Electiva">Electiva</option>
-                    <option value="Obligatoria">Obligatoria</option>
+                    <option value="Presencial">Presencial</option>
+                    <option value="Virtual">Virtual</option>
                 </select>
 
                 <h3 class="subtitle">Sandbox</h3>
@@ -50,8 +53,8 @@
                 <label for="sandboxN">No</label> <input type="radio" name="sandbox" id="sandboxN" value="no lleva sandbox">
 
                 <h3 class="subtitle">Seleccione si es electiva u obligatoria:</h3>
-                <label for="electiva">Electiva</label><input type="radio" name="electObli" id="electiva">
-                <label for="Obligatoria">Obligatoria</label> <input type="radio" name="electObli" id="obligatoria">
+                <label for="electiva">Electiva</label><input type="radio" name="Electiva" value= "Electiva" id="electiva">
+                <label for="Obligatoria">Obligatoria</label> <input type="radio" name="Obligatoria" value= "Obligatoria" id="obligatoria">
 
                 <select name="nombreSalon" id="nombreSalon">
                     <option selected>Seleccione el salon de la tecnologia</option>
@@ -61,6 +64,9 @@
                     <option value="Auditorio">Auditorio</option>
                     <option value="Laboratorios">Laboratorios</option>
                 </select>
+                <h3 class="subtitle">Nro de Creditos</h3>
+                <input type="number" name="creditosAsignatura" id="creditosAsignatura">
+                <input type="submit" value="Guardar" class="action-button">
                 <input type="button" name="next" class="next action-button" value="Next" id="nextTecno"/>
             </form>
         </section>
@@ -69,11 +75,15 @@
         <section id="agregarRoadmap">
             <h2 class="title">Agregar Roadmap</h2>
             <form id="miFormularioRoadmap">
+                <select name="sede" id="sede"></select><br>
                 <input type="text" name="roadmap" id="roadmap" placeholder="Nombre del Roadmap">
-                <h3>Nro de Creditos:</h3>
-                <input type="number" name="creditos" id="creditos">
+                <h3 class="subtitle">Nro de Creditos:</h3>
+                <input type="number" name="creditosTotales" id="creditosTotales">
                 <h3 class="subtitle">Año:</h3>
                 <input type="number" name="anio" min="1900" max="2023" value="2023">
+                <h3 class="subtitle">Nro de Asignaturas</h3>
+                <input type="number" name="nroAsignaturas" id="nroAsignaturas">
+                <input type="submit" value="Guardar" class="action-button">
                 <input type="button" name="next" class="next action-button" value="Next" id="nextRoad"/>
             </form>
         </section>
@@ -81,10 +91,15 @@
         <section id="agregarNiveles">
             <h2 class="title">Agregar Niveles</h2>
             <form id="miFormularioNiveles">
+                <select name="sede" id="sede"></select><br>
                 <input type="text" name="level" id="level" placeholder="Ingrese el nivel">
                 <input type="text" name="prerequisito" id="prerequisito" placeholder="Ingrese el prerequisito">
-                <select name="selecTecnologia" id="selecTecnologia"></select>
-                <button id="guardarNivel" class="action-button">Guardar</button> <input type="button" name="next" class="next action-button" value="Next" id="nextNivel"/>
+                <select name="selecTecnologia" id="selecTecnologia">
+                    <option value="Electiva">Electiva</option>
+                    <option value="Obligatoria">Obligatoria</option>
+                </select>
+                <input type="submit" value="Guardar" class="action-button">
+                <input type="button" name="next" class="next action-button" value="Next" id="nextNivel"/>
             </form>
         </section>
 
@@ -199,10 +214,16 @@
                     <option value="salon3">Apolo</option>
                 </select><br>
 
+                <input type="text" name="asignatura" placeholder="Ingrese su asignatura">
+                <input type="text" name="modalidad" placeholder="Ingrese la modalidad en la que enseña">
+
                 <input type="submit" value="Guardar" class="action-button">
                 <button id="botonReiniciar" class="action-button">Reiniciar</button>
             </form>
         </section>
+
     </main>
 </body>
 </html>
+
+<!-- <button id="botonReiniciar" class="action-button">Reiniciar</button> -->
